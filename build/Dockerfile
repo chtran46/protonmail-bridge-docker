@@ -1,5 +1,4 @@
-# Use carlosedp/golang for riscv64 support
-FROM carlosedp/golang:1.18 AS build
+FROM golang:1.23.4-alpine AS build
 
 # Install dependencies
 RUN apt-get update && apt-get install -y git build-essential libsecret-1-dev
@@ -9,7 +8,7 @@ WORKDIR /build/
 COPY build.sh VERSION /build/
 RUN bash build.sh
 
-FROM ubuntu:jammy
+FROM ubuntu:noble
 LABEL maintainer="Xiaonan Shen <s@sxn.dev>"
 
 EXPOSE 25/tcp
