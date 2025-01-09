@@ -1,4 +1,4 @@
-FROM golang:1.23.4-alpine AS build
+FROM golang:1.23.4 AS build
 
 # Install dependencies
 RUN apt-get update && apt-get install -y git build-essential libsecret-1-dev
